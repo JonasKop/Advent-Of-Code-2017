@@ -19,6 +19,11 @@ int main(int argc, char *argv[]) {
 
         int c0 = input.at(i) - '0';
         int c1 = input.at(i + 1) - '0';
+		
+		if (!(c0 < 10 && c0 >= 0 && c1 < 10 && c1 >= 0)){
+			std::cout << "char nr: " << i << " NaN" << std::endl;
+			exit(1);
+		}
 
         if (c0 == c1) {
             sum += c0;
@@ -28,6 +33,11 @@ int main(int argc, char *argv[]) {
     if (input.at(input.size() - 1) == input.at(0)) {
         int c0 = input.at(input.size() - 1) - 48;
         int c1 = input.at(0) - 48;
+
+		if (!(c0 < 10 && c0 >= 0 && c1 < 10 && c1 >= 0)){
+			std::cout << "char nr: " << i << " NaN" << std::endl;
+			exit(1);
+		}
 
         if (c0 == c1) {
             sum += c0;
