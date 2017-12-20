@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/jonaskop/Workspace/projects/Advent-Of-Code-2017/Day-2/main.cpp
+iostream
+-
+fstream
+-
+vector
+-
+
