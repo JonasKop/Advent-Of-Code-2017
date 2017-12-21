@@ -1,6 +1,19 @@
 #include <iostream>
 #include <fstream>
 
+char next(std::string str, unsigned int index, unsigned int dist) {
+    unsigned long new_ind = index + dist;
+    new_ind = new_ind % str.size();
+    return str.at(new_ind);
+}
+
+int next_is_same(std::string str, unsigned int index, unsigned int dist) {
+    if (next(str, index, dist) == str.at(index)) {
+        return (str.at(index) - '0');
+    }
+    return 0;
+}
+
 int main(int argc, char *argv[]) {
 
     std::string input;
@@ -14,36 +27,15 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    int sum = 0;
-    for (unsigned int i = 0; i < input.size() - 1; ++i) {
-
-        int c0 = input.at(i) - '0';
-        int c1 = input.at(i + 1) - '0';
-		
-		if (!(c0 < 10 && c0 >= 0 && c1 < 10 && c1 >= 0)){
-			std::cout << "char nr: " << i << " NaN" << std::endl;
-			exit(1);
-		}
-
-        if (c0 == c1) {
-            sum += c0;
-        }
+    unsigned int sumnext = 0;
+    unsigned int sumhalf = 0;
+    for (unsigned int i = 0; i < input.size(); ++i) {
+        sumnext += next_is_same(input, i, 1);
+        sumhalf += next_is_same(input, i, (unsigned int) input.size() / 2);
     }
 
-    if (input.at(input.size() - 1) == input.at(0)) {
-        int c0 = input.at(input.size() - 1) - 48;
-        int c1 = input.at(0) - 48;
+    std::cout << "sumnext: " << sumnext << std::endl;
+    std::cout << "sumhalf: " << sumhalf << std::endl;
 
-		if (!(c0 < 10 && c0 >= 0 && c1 < 10 && c1 >= 0)){
-			std::cout << "char nr: " << i << " NaN" << std::endl;
-			exit(1);
-		}
-
-        if (c0 == c1) {
-            sum += c0;
-        }
-    }
-
-    std::cout << sum << std::endl;
     return 0;
 }
