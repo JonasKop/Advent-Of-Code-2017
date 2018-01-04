@@ -1,0 +1,4 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jonaskop/Workspace/projects/Advent-Of-Code-2017/Day-7
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/jonaskop/Workspace/projects/Advent-Of-Code-2017/Day-7/cmake-build-debug
